@@ -1,3 +1,3 @@
-# goit-training-06
+# goit-js-hw-06
 
-репозиторий для тренировок
+home work
