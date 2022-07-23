@@ -13,21 +13,17 @@ const images = [
   },
 ];
 
-const listEl = document.querySelector(".gallery");
+const galleryListEl = document.querySelector(".gallery");
 
-const imgesEl = images.map((image) => {
-  const itemEl = document.createElement("li");
-  itemEl.classList.add(".gallery-list");
-  const imgmEl = document.createElement("img");
-  imgEl.src = image.url;
-  imgEl.alt = image.alt;
-  imgEl.width = 150;
-  itemEl.append(imgEl);
-  return itemEl;
-});
+const galleryItemEl = ({ url, alt }) =>
+  `<li><img class="gallery-list" src="${url}" alt="${alt}" width = "400"></li>`;
 
-console.log(listEl);
-listEl.append(...imgesEl);
+const galleryEl = images.reduce(
+  (acc, number) => acc + galleryItemEl(number),
+  ""
+);
+
+galleryListEl.insertAdjacentHTML("afterbegin", galleryEl);
 
 // Используй массив объектов images для создания элементов <img> вложенных в <li>. Для создания разметки используй шаблонные строки и метод insertAdjacentHTML().
 
